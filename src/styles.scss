@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~office-ui-fabric-core/dist/sass/Fabric";
+
+@import "styles/ms-button";
+
+.ms-bgColor-transparent {
+  background: transparent;
+}
+
+.ms-borderColor-transparent {
+   border-color: transparent;
+ }
+
+.ms-fontColor-transparent {
+  color: transparent;
+}
+
+.ms-fontColor-transparent--hover:hover {
+  color: transparent;
+}
