@@ -49,6 +49,13 @@
   &.rounded {
     border-radius: 50%;
   }
+  &:hover {
+    filter: contrast(1.1);
+  }
+
+  &:active, &:focus {
+    outline: none;
+  }
 
 }
 

@@ -1,10 +1,10 @@
 {
   "name": "@ms-fluent/button",
-  "version": "0.0.10",
+  "version": "0.0.13",
   "scripts": {
     "ng": "ng",
     "package": "ng-packagr -p package.json",
-    "publish": "publish dist",
+    "publish": "npm publish dist --access public",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
@@ -69,7 +69,7 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
-    "ng-packagr": "^10.1.2",
+    "ng-packagr": "9.0.0",
     "node-sass": "4.14.1",
     "protractor": "~5.4.3",
     "ts-node": "~8.3.0",

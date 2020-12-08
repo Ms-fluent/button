@@ -1,6 +1,14 @@
-import {ChangeDetectionStrategy, Component, ElementRef, Inject, Input, Optional, ViewEncapsulation} from '@angular/core';
-import {MsButtonBase} from '../button-base';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Inject,
+  Input,
+  Optional,
+  ViewEncapsulation
+} from '@angular/core';
 import {MS_BUTTON_DEFAULT_OPTIONS, MsButtonDefaultOptions} from '../button-options';
+import {MsButtonBase} from "../button-base";
 
 @Component({
   selector: 'button[msButton], button[ms-button]',
@@ -8,22 +16,17 @@ import {MS_BUTTON_DEFAULT_OPTIONS, MsButtonDefaultOptions} from '../button-optio
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    'class': 'ms-button'
+    'class': 'ms-button',
+    '[attr.type]': 'type'
   }
 })
 export class MsButton extends MsButtonBase {
   @Input()
-  disabled: boolean = false;
-
-  @Input()
   icon: string;
 
-  @Input()
-  secondaryIcon: string;
-
-  constructor(elementRef: ElementRef<HTMLButtonElement>,
-              @Optional() @Inject(MS_BUTTON_DEFAULT_OPTIONS) defaultOptions: MsButtonDefaultOptions) {
-    super(elementRef, defaultOptions);
+  constructor(_elementRef: ElementRef<HTMLButtonElement>,
+              @Optional() @Inject(MS_BUTTON_DEFAULT_OPTIONS) _defaultOptions: MsButtonDefaultOptions) {
+    super(_elementRef, _defaultOptions);
   }
 
 }

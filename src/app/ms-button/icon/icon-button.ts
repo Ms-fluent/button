@@ -1,15 +1,16 @@
-import {Component, ElementRef, HostBinding, Inject, Input, Optional} from '@angular/core';
-import {MsButtonBase} from '../button-base';
+import {AfterViewInit, Component, ElementRef, HostBinding, Inject, Input, OnInit, Optional} from '@angular/core';
 import {MS_BUTTON_DEFAULT_OPTIONS, MsButtonDefaultOptions} from '../button-options';
+import {MsButtonBase} from "../button-base";
 
 @Component({
   templateUrl: 'icon-button.html',
   selector: 'button[msIconButton], button[ms-icon-button]',
   host: {
-    'class': 'ms-iconButton'
+    'class': 'ms-iconButton',
+    '[attr.type]': 'type'
   }
 })
-export class MsIconButton extends MsButtonBase {
+export class MsIconButton extends MsButtonBase implements AfterViewInit, OnInit {
   @Input()
   icon: string = 'Add';
 
@@ -17,9 +18,9 @@ export class MsIconButton extends MsButtonBase {
   @HostBinding('class.rounded')
   rounded: boolean;
 
-  constructor(elementRef: ElementRef<HTMLButtonElement>,
-              @Optional() @Inject(MS_BUTTON_DEFAULT_OPTIONS) defaultOptions: MsButtonDefaultOptions) {
-    super(elementRef, defaultOptions);
+  constructor(_elementRef: ElementRef<HTMLButtonElement>,
+              @Optional() @Inject(MS_BUTTON_DEFAULT_OPTIONS) _defaultOptions: MsButtonDefaultOptions) {
+    super(_elementRef, _defaultOptions);
   }
 
 }

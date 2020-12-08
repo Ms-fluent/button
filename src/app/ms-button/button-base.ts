@@ -1,9 +1,19 @@
-import {AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
 import {MsButtonDefaultOptions, msButtonSize} from './button-options';
 import {MsRipple} from './ripple';
+import {msButtonTheme} from "./button-theme";
 
-@Component()
+
 export class MsButtonBase implements OnInit, AfterViewInit {
+  @Input()
+  disabled: boolean = false;
+
+  @Input()
+  type: string = 'button';
+
+  @Input()
+  secondaryIcon: string;
+
   @Input()
   get size(): msButtonSize {
     return this._size;
@@ -96,11 +106,11 @@ export class MsButtonBase implements OnInit, AfterViewInit {
 
 
   @Input()
-  get theme(): string {
+  get theme(): msButtonTheme | string {
     return this._theme;
   }
 
-  set theme(value: string) {
+  set theme(value: msButtonTheme | string) {
     const themeColor = this._defaultOptions.colorThemes[value];
     if (!themeColor) {
       throw new Error(`There is no theme with name: ${value}`);
@@ -115,7 +125,7 @@ export class MsButtonBase implements OnInit, AfterViewInit {
     this._theme = value;
   }
 
-  private _theme: string;
+  private _theme: msButtonTheme | string;
 
   @ViewChild('focusBorder')
   private focusBorder: ElementRef<HTMLDivElement>;
@@ -138,10 +148,6 @@ export class MsButtonBase implements OnInit, AfterViewInit {
     this.focusBorder.nativeElement.classList.add(`ms-borderColor-transparent`);
   }
 
-  constructor(protected _elementRef: ElementRef<HTMLButtonElement>,
-              protected _defaultOptions: MsButtonDefaultOptions) {
-  }
-
   ngOnInit(): void {
     if (!this._theme && this._defaultOptions?.theme) {
       this.theme = this._defaultOptions.theme;
@@ -158,5 +164,8 @@ export class MsButtonBase implements OnInit, AfterViewInit {
 
   get host(): HTMLButtonElement {
     return this._elementRef.nativeElement;
+  }
+
+  constructor(private _elementRef: ElementRef<HTMLButtonElement>, private _defaultOptions: MsButtonDefaultOptions) {
   }
 }

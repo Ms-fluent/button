@@ -1,3 +1,6 @@
+export type msButtonTheme = 'error' | 'transparent' | 'info' | 'primary' | 'success' | 'error' | 'warning' | 'standard'
+| 'errorOutline'  | 'infoOutline' | 'primaryOutline' | 'successOutline' | 'errorOutline' | 'warningOutline' | 'standardOutline'
+
 export interface MsButtonColorTheme {
   fontColor: string;
   bgColor: string;
@@ -15,6 +18,13 @@ export const colorThemes: { [name: string]: MsButtonColorTheme } = {
     hoverBgColor: 'sharedRed20',
     borderColor: 'sharedRed10'
   },
+  'transparent': {
+    fontColor: 'inherit',
+    focusBorderColor: 'transparent',
+    bgColor: 'transparent',
+    hoverBgColor: 'transparent',
+    borderColor: 'transparent'
+  },
   'standard': {
     fontColor: 'sharedGray180',
     focusBorderColor: 'sharedGray180',
@@ -22,6 +32,12 @@ export const colorThemes: { [name: string]: MsButtonColorTheme } = {
     borderColor: 'transparent'
   },
   'info': {
+    fontColor: 'white',
+    focusBorderColor: 'white',
+    bgColor: 'sharedBlue10',
+    borderColor: 'sharedBlue10'
+  },
+  'primary': {
     fontColor: 'white',
     focusBorderColor: 'white',
     bgColor: 'sharedBlue10',
@@ -63,6 +79,16 @@ export const colorThemes: { [name: string]: MsButtonColorTheme } = {
     hoverBgColor: 'sharedBlue10',
     borderColor: 'sharedBlue10'
   },
+
+  'primaryOutline': {
+    fontColor: 'sharedBlue10',
+    focusBorderColor: 'sharedBlue10',
+    bgColor: 'transparent',
+    hoverFontColor: 'white',
+    hoverBgColor: 'sharedBlue10',
+    borderColor: 'sharedBlue10'
+  },
+
   'successOutline': {
     fontColor: 'sharedGreenCyan10',
     focusBorderColor: 'sharedGreenCyan10',
