@@ -1,12 +1,13 @@
 import {AfterViewInit, Component, ElementRef, HostBinding, Inject, Input, OnInit, Optional} from '@angular/core';
 import {MS_BUTTON_DEFAULT_OPTIONS, MsButtonDefaultOptions} from '../button-options';
-import {MsButtonBase} from "../button-base";
+import {MsButtonBase} from '../button-base';
 
 @Component({
   templateUrl: 'icon-button.html',
   selector: 'button[msIconButton], button[ms-icon-button]',
   host: {
     'class': 'ms-iconButton',
+    '[class.ms-disabled]': 'disabled',
     '[attr.type]': 'type'
   }
 })
